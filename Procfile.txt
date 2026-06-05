@@ -1,0 +1,1 @@
+web: gunicorn zte_site.wsgi

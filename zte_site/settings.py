@@ -115,3 +115,7 @@ load_dotenv()
 
 # Получаем ключ
 YANDEX_MAPS_API_KEY = os.getenv('YANDEX_MAPS_API_KEY')
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://zabtehexspert.up.railway.app',
+]

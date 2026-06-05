@@ -1,0 +1,22 @@
+{% load static %}
+<section class="consultation-global">
+  <div class="container two-col" data-animate>
+      <h2>Бесплатная консультация</h2>
+      <p class="lead">
+        Оставьте заявку, и наш специалист свяжется с вами в ближайшее время.
+      </p>
+      <form method="post" action="{% url 'lead_consultation' %}" class="form">
+        {% csrf_token %}
+        <div class="form-row">
+          <label>Ваше имя</label>
+          <input type="text" name="name" placeholder="Иван Иванов" required>
+        </div>
+        <div class="form-row">
+          <label>Телефон</label>
+          <input type="tel" name="phone" placeholder="+7 (XXX) XXX-XX-XX" autocomplete="tel" required>
+        </div>
+        <button class="btn btn-accent" type="submit">Заказать обратный звонок</button>
+      </form>
+    <div class="consult-side" data-animate></div>
+  </div>
+</section>

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Вход — ЗабТехЭксперт{% endblock %}
+
+{% block content %}
+<section class="hero-figma" style="background: url('/static/img/banner.svg') center/cover no-repeat;">
+  <div class="hero-figma-overlay"></div>
+  <div class="hero-figma-inner login">
+    <div class="hero-figma-content reg-form" data-animate >
+      <div class="contact-form-card" data-animate >
+        <h2 style="margin-bottom: 20px; text-align: center; font-size: 32px; color: #1e1e1e;">Вход в личный кабинет</h2>
+        <form method="post" class="form reg">
+          {% csrf_token %}
+          {% if form.non_field_errors %}
+          <div class="form-row" style="color:#9B2C2C; background: rgba(155,44,44,0.1); padding: 12px; border-radius: 8px;">{{ form.non_field_errors }}</div>
+          {% endif %}
+          {% for field in form %}
+          <div class="form-row">
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {% if field.errors %}<small class="tiny" style="color:#9B2C2C;">{{ field.errors.0 }}</small>{% endif %}
+          </div>
+          {% endfor %}
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Войти</button>
+        </form>
+        <p class="tiny" style="margin-top: 20px; text-align: center; color: #1e1e1e;">Нет аккаунта? <a href="{% url 'register' %}" style="color: var(--primary);">Зарегистрироваться</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

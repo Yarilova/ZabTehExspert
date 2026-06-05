@@ -1,0 +1,122 @@
+{% extends "base.html" %} {% load static %} {% block title %}Печатная продукция
+и журналы по охране труда | ЗабТехЭксперт{% endblock %} {% block content %}
+<section
+  class="hero-figma"
+  style="
+    background: url(&quot;/static/img/banner.svg&quot;) center/cover no-repeat;
+  "
+>
+  <div class="hero-figma-overlay"></div>
+  <div class="hero-figma-inner">
+    <div class="hero-figma-content" data-animate>
+      <h1>Печатная продукция по охране труда</h1>
+      <p class="hero-tagline service">
+        Журналы, инструкции, плакаты и комплекты документации для предприятий.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="detail" data-animate>
+      <h2>Журналы по охране труда</h2>
+      <p style="font-size: 18px;">
+        Организация безопасного ведения работ на производстве невозможна без
+        ведения журналов по охране труда. Перечень журналов по охране труда,
+        которые необходимы для каждого предприятия, зависит от специфики
+        деятельности.
+      </p>
+    </div>
+
+    <div class="detail" style="margin-top: 28px" data-animate>
+      <div
+        class="sout"
+      >
+        <img
+          src="{% static 'img/placeholder17.png' %}"
+          alt=""
+          class="adaptive-img"
+        />
+       <div>
+        <p style="font-weight: 500; font-size: 20px; margin-bottom: 12px">
+            В наличии:
+          </p>
+          <div class="spans">
+            <span>Журнал учёта противопожарных инструктажей</span>
+          <span>Журнал регистрации проверки знаний работников по охране труда</span>
+          <span>Журнал регистрации вводного инструктажа по охране труда</span>
+          <span>Журнал регистрации инструктажа на рабочем месте</span>
+          <span>Журнал регистрации инструктажа по оказанию первой помощи пострадавшим</span>
+          <span>Журнал учета присвоения группы 1 по электробезопасности неэлектротехническому персоналу</span>
+          <span>И другие.</span>
+          </div>
+       </div>
+      </div>
+    </div>
+
+    <div
+      class="contact-form-card"
+      data-animate
+      style="max-width: 600px; margin: 40px auto; text-align: center"
+    >
+      <h2 style="margin-bottom: 20px">Оставьте заявку на покупку журнала</h2>
+      <form method="post" class="form">
+        {% csrf_token %}
+        <div class="form-row">
+          <label for="id_full_name">Ваше имя</label>
+          <input
+            type="text"
+            name="full_name"
+            id="id_full_name"
+            placeholder="Иван Иванов"
+            required
+          />
+        </div>
+        <div class="form-row">
+          <label for="id_phone">Телефон</label>
+          <input
+            type="tel"
+            name="phone"
+            id="id_phone"
+            placeholder="+7 (XXX) XXX-XX-XX"
+            required
+          />
+        </div>
+        <div class="form-row">
+          <label for="id_email">Электронная почта</label>
+          <input
+            type="email"
+            name="email"
+            id="id_email"
+            placeholder="mail@example.com"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%">
+          Отправить заявку
+        </button>
+      </form>
+    </div>
+  </div>
+  {% if other_services %}
+  <div class="section-head slim" style="margin-top: 48px">
+    <h2>Другие услуги</h2>
+  </div>
+  <div class="cards cards-4">
+    {% for s in other_services %}
+    <a class="card" href="{{ s.get_absolute_url }}" data-animate>
+      <div class="description">
+        {% if s.svg_icon %}
+        <div class="card-icon">{{ s.svg_icon|safe }}</div>
+        {% endif %}
+        <h3>{{ s.title }}</h3>
+        <p>{{ s.short_description|truncatewords:20 }}</p>
+      </div>
+      <span class="link">Подробнее</span>
+    </a>
+    {% endfor %}
+  </div>
+  {% endif %}
+</section>
+
+{% endblock %}

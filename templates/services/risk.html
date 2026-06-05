@@ -1,0 +1,197 @@
+{% extends "base.html" %} {% load static %} {% block title %}Оценка
+профессиональных рисков | ЗабТехЭксперт{% endblock %} {% block content %}
+<section
+  class="hero-figma"
+  style="
+    background: url(&quot;/static/img/banner.svg&quot;) center/cover no-repeat;
+  "
+>
+  <div class="hero-figma-overlay"></div>
+  <div class="hero-figma-inner">
+    <div class="hero-figma-content" data-animate>
+      <h1>Оценка профессиональных рисков по всей России</h1>
+      <p class="hero-tagline service">
+        Идентификация опасностей, оценка рисков и разработка мероприятий по
+        снижению.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="detail" data-animate>
+      <h2>
+        Цена на оценку профессиональных рисков
+      </h2>
+      <p style="margin-bottom: 12px; font-size: 18px;">
+        Стоимость оценки профессиональных рисков зависит от количества рабочих
+        мест, особенностей производственных и технологических процессов
+        организации, наличия у работодателя ЛНА по ОТ и ряда других факторов.
+        <strong>Точная цена</strong> и условия сотрудничества прописываются
+        <strong>в договоре</strong> на оказание услуг.
+      </p>
+      <p
+        style="
+          background-color: #9b2c2c;
+          color: #fcfcfc;
+          padding: 12px;
+          border-radius: 8px;
+          font-weight: 500;
+          text-align: center;
+          font-size: 18px;
+        "
+      >
+        стоимость зависит от количества рабочих мест в штатном расписании и
+        срочности изготовления карт профрисков
+      </p>
+    </div>
+
+    <div
+      class="contact-form-card"
+      data-animate
+      style="max-width: 600px; margin: 40px auto"
+    >
+      <h2 style="margin-bottom: 20px; text-align: center">
+        Оставьте заявку на индивидуальный расчет
+      </h2>
+      <form method="post" class="form">
+        {% csrf_token %}
+        <div class="form-row">
+          <label for="id_full_name">Ваше имя</label>
+          <input
+            type="text"
+            name="full_name"
+            id="id_full_name"
+            placeholder="Иван Иванов"
+            required
+          />
+        </div>
+        <div class="form-row">
+          <label for="id_phone">Телефон</label>
+          <input
+            type="tel"
+            name="phone"
+            id="id_phone"
+            placeholder="+7 (XXX) XXX-XX-XX"
+            required
+          />
+        </div>
+        <div class="form-row">
+          <label for="id_email">Электронная почта</label>
+          <input
+            type="email"
+            name="email"
+            id="id_email"
+            placeholder="mail@example.com"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%">
+          Отправить заявку
+        </button>
+      </form>
+    </div>
+
+    <div class="detail" data-animate>
+      <h2 >
+        Кому нужна оценка профессиональных рисков?
+      </h2>
+      <p style="margin-bottom: 16px; font-size: 18px;">
+        Проводить это мероприятие обязаны все работодатели, включая
+        предпринимателей с наемными работниками. Масштаб, вид деятельности
+        бизнеса значения не имеют. Даже если в компании всего одно рабочее место
+        и нет специалиста по ОТ, придется соблюдать требования законодательства.
+      </p>
+      <div
+        class="sout"
+      >
+        <img
+          src="{% static 'img/placeholder15.png' %}"
+          alt=""
+          class="adaptive-img"
+        />
+        <div>
+          <p style="font-weight: 500; font-size: 20px; margin-bottom: 12px">
+            При любой плановой или внеплановой проверке ГИТ (государственная
+            инспекция труда) в числе обязательных документов потребуют
+            предъявить:
+          </p>
+          <ul
+            style="
+              margin: 0;
+              padding: 0 0 0 20px;
+              display: flex;
+              flex-direction: column;
+              gap: 8px;
+            "
+          >
+            <li>
+              Положение о СОУТ или иной ЛНА, где прописаны используемые методы
+              оценки.
+            </li>
+            <li>
+              Реестр идентифицированных опасностей с перечнем потенциальных
+              видов рисков и вероятностью их возникновения для сотрудников.
+            </li>
+            <li>
+              План мероприятий по корректировке проф рисков с конкретными
+              сроками, порядком проведения, источниками финансирования.
+            </li>
+            <li>
+              Отчет по оценке профессиональных рисков с результатами проведенных
+              процедур, другие обязательные документы.
+            </li>
+          </ul>
+          <p style="margin-top: 16px; font-size: 18px;">
+            Риски в организации бывают самими разными. Это электрические,
+            механические, термические виды опасностей; угрозы, связанные с
+            подъемом тяжелых грузов, с шумовым, вибрационным, биологическим
+            воздействием и т.д. Чтобы свести к минимуму их влияние на здоровье
+            персонала, снизить вероятность получения травм, необходимо выявлять
+            риски, оценивать их уровень, принимать соответствующие меры по
+            снижению.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail" style="margin-top: 28px;" data-animate>
+      <p
+        style="
+          background-color: #9b2c2c;
+          color: #fcfcfc;
+          padding: 12px;
+          border-radius: 8px;
+          margin-bottom: 12px;
+          font-weight: 500;
+          font-size: 18px;
+        "
+      >
+        В рамках управления ОТ (охрана труда) все работодатели обязаны проводить идентификацию опасностей и оценку профрисков по требованиям Типового положения (Приказ Минтруда России от 29.10.2021 N 776н "Об утверждении Примерного положения о системе управления охраной труда"). Эта процедура помогает определить, есть ли и какой риск для здоровья работников, можно ли его снизить, что для этого предпринять.
+Отказ от проведения ОПР грозит работодателю административными санкциями. Размер штрафа для юрлиц составляет 50000-80000 руб.; для ИП, должностных лиц – 2000-5000 руб. (ч. 1 статьи 5.27.1 КоАП РФ).
+      </p>
+    </div>
+
+  </div>
+{% if other_services %}
+  <div class="section-head slim" style="margin-top: 48px">
+    <h2>Другие услуги</h2>
+  </div>
+  <div class="cards cards-4">
+    {% for s in other_services %}
+    <a class="card" href="{{ s.get_absolute_url }}" data-animate>
+      <div class="description">
+        {% if s.svg_icon %}
+        <div class="card-icon">{{ s.svg_icon|safe }}</div>
+        {% endif %}
+        <h3>{{ s.title }}</h3>
+        <p>{{ s.short_description|truncatewords:20 }}</p>
+      </div>
+      <span class="link">Подробнее</span>
+    </a>
+    {% endfor %}
+  </div>
+  {% endif %}
+</section>
+
+{% endblock %}

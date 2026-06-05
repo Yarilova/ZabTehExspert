@@ -1,0 +1,555 @@
+{% extends "base.html" %} {% load static %} {% block title %}СОУТ — Специальная
+оценка условий труда | ЗабТехЭксперт{% endblock %} {% block content %}
+<section
+  class="hero-figma"
+  style="
+    background: url(&quot;/static/img/banner.svg&quot;) center/cover no-repeat;
+  "
+>
+  <div class="hero-figma-overlay"></div>
+  <div class="hero-figma-inner">
+    <div class="hero-figma-content" data-animate>
+      <h1>Специальная оценка условий труда (СОУТ)</h1>
+      <p class="hero-tagline service">
+        Организация и сопровождение СОУТ, подготовка пакета документов и
+        отчетности.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="detail" data-animate>
+      <h2>Что такое специальная оценка условий труда (СОУТ)?</h2>
+      <p
+        style="
+          background-color: #9b2c2c;
+          color: #fcfcfc;
+          padding: 12px;
+          border-radius: 8px;
+          margin-bottom: 12px;
+          font-weight: 500;
+          font-size: 18px;
+        "
+      >
+        <strong>СОУТ</strong> - это специальная оценка условий труда, которая
+        проводится единым, последовательным комплексом мероприятий.
+        <strong>СОУТ</strong>
+        идентифицирует вредные и опасные факторы производственной среды
+        трудового процесса, а также оценивает уровень их воздействия на
+        работника.
+      </p>
+      <p style="margin-top: 12px; font-size: 18px">
+        Каждый человек имеет право трудиться в условиях, отвечающих требованиям
+        гигиены и безопасности. Установлены санитарно-гигиенические нормативы,
+        обеспечивающие охрану здоровья и жизни трудящихся во время исполнения
+        профессиональных обязанностей. <strong>СОУТ</strong> – это процедура,
+        проводимая с целью выявления вредных производственных факторов:
+      </p>
+      <ul
+        style="
+          margin: 20px 0 0 20px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          font-size: 18px;
+        "
+      >
+        <li>
+          физических – шумов, вибраций, освещения, ионизирующих и неионизирующих
+          излучений, магнитных полей, микроклимата;
+        </li>
+        <li>
+          химических – отдельных элементов и их соединений, с которыми человек
+          непосредственно контактирует во время работы;
+        </li>
+        <li>биологических – патогенных и непатогенных микроорганизмов;</li>
+        <li>тяжесть и напряженность трудового процесса.</li>
+      </ul>
+      <p style="margin-top: 16px; font-weight: 500; font-size: 18px">
+        По итогам оценки каждому рабочему месту присваивается определенный класс
+        опасности.
+      </p>
+    </div>
+
+    <div class="detail" style="margin-top: 28px" data-animate>
+      <h2>
+        Преимущества СОУТ
+      </h2>
+      <div class="preim-sout"
+       
+      >
+        <div
+          class="feature-item"
+          style="
+            background: #f5f5f5;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+          "
+        >
+          <strong
+            style="
+              display: block;
+              font-size: 18px;
+              color: var(--primary);
+              margin-bottom: 8px;
+            "
+            >Защита от штрафов</strong
+          >
+          <span style="color: #555; font-size: 14px; line-height: 1.4"
+            >Работодателю больше не страшны штрафы за не проведение СОУТ.</span
+          >
+        </div>
+        <div
+          class="feature-item"
+          style="
+            background: #f5f5f5;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+          "
+        >
+          <strong
+            style="
+              display: block;
+              font-size: 18px;
+              color: var(--primary);
+              margin-bottom: 8px;
+            "
+            >Реальная картина</strong
+          >
+          <span style="color: #555; font-size: 14px; line-height: 1.4"
+            >Работодатель знает реальную обстановку на рабочих местах
+            сотрудников. Больше нет надобности давать льготы сотрудникам,
+            которым они не предписаны законом.</span
+          >
+        </div>
+        <div
+          class="feature-item"
+          style="
+            background: #f5f5f5;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+          "
+        >
+          <strong
+            style="
+              display: block;
+              font-size: 18px;
+              color: var(--primary);
+              margin-bottom: 8px;
+            "
+            >Скидка на тарифы ФСС</strong
+          >
+          <span style="color: #555; font-size: 14px; line-height: 1.4"
+            >Скидка на тарифы в ФСС до 40%</span
+          >
+        </div>
+        <div
+          class="feature-item"
+          style="
+            background: #f5f5f5;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+          "
+        >
+          <strong
+            style="
+              display: block;
+              font-size: 18px;
+              color: var(--primary);
+              margin-bottom: 8px;
+            "
+            >Снижение ответственности</strong
+          >
+          <span style="color: #555; font-size: 14px; line-height: 1.4"
+            >Работодатель снимает с себя значительную часть ответственности при
+            несчастном случае.</span
+          >
+        </div>
+        <div
+          class="feature-item"
+          style="
+            background: #f5f5f5;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+          "
+        >
+          <strong
+            style="
+              display: block;
+              font-size: 18px;
+              color: var(--primary);
+              margin-bottom: 8px;
+            "
+            >План мероприятий</strong
+          >
+          <span style="color: #555; font-size: 14px; line-height: 1.4"
+            >Работодатель получает от организации, проводившей СОУТ, план
+            мероприятий по улучшению условий труда.</span
+          >
+        </div>
+        <div
+          class="feature-item"
+          style="
+            background: #f5f5f5;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+          "
+        >
+          <strong
+            style="
+              display: block;
+              font-size: 18px;
+              color: var(--primary);
+              margin-bottom: 8px;
+            "
+            >Компенсации из ФСС</strong
+          >
+          <span style="color: #555; font-size: 14px; line-height: 1.4"
+            >При проведенной СОУТ уровень наказания и штрафа будет значительно
+            меньше. Компенсации и ущерб здоровью будут покрыты из ФСС.</span
+          >
+        </div>
+        <div
+          class="feature-item"
+          style="
+            background: #f5f5f5;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+          "
+        >
+          <strong
+            style="
+              display: block;
+              font-size: 18px;
+              color: var(--primary);
+              margin-bottom: 8px;
+            "
+            >Финансирование медкомиссий</strong
+          >
+          <span style="color: #555; font-size: 14px; line-height: 1.4"
+            >За счет средств из ФСС, работодатель может проводить мед. комиссию
+            и улучшение рабочих мест, а также улучшение охраны труда.</span
+          >
+        </div>
+      </div>
+    </div>
+    <div
+      class="contact-form-card"
+      data-animate
+      style="max-width: 600px; margin: 40px auto"
+    >
+      <h2 style="margin-bottom: 20px; text-align: center">
+        Оставьте заявку на проведение СОУТ
+      </h2>
+      <form method="post" class="form">
+        {% csrf_token %}
+
+        <div class="form-row">
+          <label for="id_workplaces_count"
+            >{{ form.workplaces_count.label }}</label
+          >
+          {{ form.workplaces_count }}
+        </div>
+
+        <div class="form-row">
+          <label for="id_location">{{ form.location.label }}</label>
+          {{ form.location }}
+        </div>
+
+        <div class="form-row">
+          <label for="id_full_name">{{ form.full_name.label }}</label>
+          {{ form.full_name }}
+        </div>
+
+        <div class="form-row">
+          <label for="id_phone">{{ form.phone.label }}</label>
+          {{ form.phone }}
+        </div>
+
+        <div class="form-row">
+          <label for="id_email">{{ form.email.label }}</label>
+          {{ form.email }}
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%">
+          Отправить заявку
+        </button>
+      </form>
+    </div>
+
+    <div class="detail" data-animate>
+      <h2>
+        Кому нужно проводить СОУТ?
+      </h2>
+      <p style="text-align: center; margin-bottom: 16px; font-size: 18px">
+        СОУТ обязательна для каждого работодателя, за исключением случаев, когда
+        им является физическое лицо или религиозная организация.
+      </p>
+      <div class="sout">
+        <img
+          src="{% static 'img/placeholder14.png' %}"
+          alt=""
+          class="adaptive-img"
+        />
+        <div>
+          <p style="font-weight: 500; font-size: 20px; margin-bottom: 12px">
+            Внеплановая оценка рабочих мест нужна в следующих случаях:
+          </p>
+          <ul
+            style="
+              margin: 0;
+              padding: 0 0 0 20px;
+              display: flex;
+              flex-direction: column;
+              gap: 8px;
+            "
+          >
+            <li>организация новых рабочих мест;</li>
+            <li>изменения в технологии производства;</li>
+            <li>приобретение нового оборудования;</li>
+            <li>прием на работу нового сотрудника;</li>
+            <li>переезд компании на новое место;</li>
+            <li>жалобы сотрудников;</li>
+            <li>выявление у персонала профессионального заболевания;</li>
+            <li>предписание надзорного органа;</li>
+            <li>несчастный случай на производстве.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail" style="margin-top: 28px" data-animate>
+      <h2>
+        Порядок проведения СОУТ
+      </h2>
+      <p style="font-size: 18px">
+        Специальная оценка условий труда проводится совместными усилиями
+        работодателя и организации, аккредитованной в Минтруде и
+        зарегистрированной в соответствующем государственном реестре. Процедура
+        состоит из нескольких этапов:
+      </p>
+      <div
+        class="preim-sout"
+      >
+        <div
+          class="feature-item"
+          style="
+            background: #f5f5f5;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+          "
+        >
+          <strong
+            style="
+              display: block;
+              font-size: 18px;
+              color: var(--primary);
+              margin-bottom: 8px;
+            "
+            >Этап 1</strong
+          >
+          <span style="color: #555; font-size: 14px; line-height: 1.4"
+            >Издание приказа о проведении СОУТ и формировании специальной
+            комиссии</span
+          >
+        </div>
+        <div
+          class="feature-item"
+          style="
+            background: #f5f5f5;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+          "
+        >
+          <strong
+            style="
+              display: block;
+              font-size: 18px;
+              color: var(--primary);
+              margin-bottom: 8px;
+            "
+            >Этап 2</strong
+          >
+          <span style="color: #555; font-size: 14px; line-height: 1.4"
+            >Утверждение перечня рабочих мест, подлежащих спецоценке и
+            составление графика проведения процедуры</span
+          >
+        </div>
+        <div
+          class="feature-item"
+          style="
+            background: #f5f5f5;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+          "
+        >
+          <strong
+            style="
+              display: block;
+              font-size: 18px;
+              color: var(--primary);
+              margin-bottom: 8px;
+            "
+            >Этап 3</strong
+          >
+          <span style="color: #555; font-size: 14px; line-height: 1.4"
+            >Заключение договора со специализированной организацией и передача
+            ей всех необходимых документов</span
+          >
+        </div>
+        <div
+          class="feature-item"
+          style="
+            background: #f5f5f5;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+          "
+        >
+          <strong
+            style="
+              display: block;
+              font-size: 18px;
+              color: var(--primary);
+              margin-bottom: 8px;
+            "
+            >Этап 4</strong
+          >
+          <span style="color: #555; font-size: 14px; line-height: 1.4"
+            >Идентификация экспертом условий производственной среды с
+            последующим декларированием или проведением лабораторных
+            испытаний</span
+          >
+        </div>
+        <div
+          class="feature-item"
+          style="
+            background: #f5f5f5;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+          "
+        >
+          <strong
+            style="
+              display: block;
+              font-size: 18px;
+              color: var(--primary);
+              margin-bottom: 8px;
+            "
+            >Этап 5</strong
+          >
+          <span style="color: #555; font-size: 14px; line-height: 1.4"
+            >Составление отчета о проведении СОУТ с подписями всех членов
+            комиссии и утверждение его председателем – руководителем
+            предприятия</span
+          >
+        </div>
+        <div
+          class="feature-item"
+          style="
+            background: #f5f5f5;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+          "
+        >
+          <strong
+            style="
+              display: block;
+              font-size: 18px;
+              color: var(--primary);
+              margin-bottom: 8px;
+            "
+            >Этап 6</strong
+          >
+          <span style="color: #555; font-size: 14px; line-height: 1.4"
+            >Передача отчета и декларации в ГИТ</span
+          >
+        </div>
+      </div>
+      <p style="margin-top: 12px; font-size: 18px">
+        В тридцатидневный срок после завершения процедуры
+        <strong
+          >работодатель обязан ознакомить своих сотрудников о результатах
+          спецоценки</strong
+        >
+        и плане мероприятий по улучшению условий труда.
+      </p>
+    </div>
+  </div>
+
+  {% if other_services %}
+  <div class="section-head slim" style="margin-top: 48px">
+    <h2>Другие услуги</h2>
+  </div>
+  <div class="cards cards-4">
+    {% for s in other_services %}
+    <a class="card" href="{{ s.get_absolute_url }}" data-animate>
+      <div class="description">
+        {% if s.svg_icon %}
+        <div class="card-icon">{{ s.svg_icon|safe }}</div>
+        {% endif %}
+        <h3>{{ s.title }}</h3>
+        <p>{{ s.short_description|truncatewords:20 }}</p>
+      </div>
+      <span class="link">Подробнее</span>
+    </a>
+    {% endfor %}
+  </div>
+  {% endif %}
+</section>
+
+{% endblock %}

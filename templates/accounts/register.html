@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Регистрация — ЗабТехЭксперт{% endblock %}
+
+{% block content %}
+<section class="hero-figma" style="background: url('/static/img/banner.svg') center/cover no-repeat;">
+  <div class="hero-figma-overlay"></div>
+  <div class="hero-figma-inner" style="padding-top: 150px; padding-bottom: 50px;">
+    <div class="hero-figma-content reg-form" data-animate >
+      <div class="contact-form-card" data-animate >
+        <h2 style="margin-bottom: 20px; text-align: center; font-size: 32px; color: #1e1e1e;">Регистрация</h2>
+        <form method="post" class="form reg">
+          {% csrf_token %}
+          {% for field in form %}
+          <div class="form-row">
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {% if field.errors %}<small class="tiny" style="color:#9B2C2C;">{{ field.errors.0 }}</small>{% endif %}
+          </div>
+          {% endfor %}
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Создать аккаунт</button>
+        </form>
+        <p class="tiny" style="margin-top: 20px; text-align: center; color: #1e1e1e;">Уже есть аккаунт? <a href="{% url 'login' %}" style="color: var(--primary);">Войти</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

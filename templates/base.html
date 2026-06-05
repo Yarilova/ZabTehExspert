@@ -1,0 +1,299 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}ЗабТехЭксперт{% endblock %}</title>
+    <link rel="icon" type="image/svg+xml" href="{% static 'img/logo-new.svg' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Text:wght@400;500;600;700&family=Ysabeau:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a href="{% url 'home' %}" class="hero-brand">
+          <img src="{% static 'img/logo-new.svg' %}" alt="Логотип" />
+          <span>ЗабТехЭксперт</span>
+        </a>
+        
+
+        <div class="header-actions">
+         
+          <nav class="main-nav">
+            <a href="#services-block">Услуги</a>
+            <a href="{% url 'about' %}">О компании</a>
+            <a href="{% url 'contacts' %}">Контакты</a>
+          </nav>
+          <div class="mobile">
+            <div class="header-phone">
+            <span>8 (3022) 24-43-29</span>
+            <small>г. Чита</small>
+          </div>
+          <button class="nav-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+          </div>
+          {% if user.is_authenticated %}
+          <a class="btn btn-accent" href="{% url 'profile' %}"
+            >Личный кабинет</a
+          >
+          {% else %}
+          <a class="btn btn-accent" href="{% url 'register' %}"
+            >Зарегистрироваться</a
+          >
+          {% endif %}
+        </div>
+      </div>
+      <div class="mobile-menu-overlay"></div>
+      <aside class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <nav class="mobile-menu-nav">
+          <a href="#services-block">Услуги</a>
+          <a href="{% url 'about' %}">О компании</a>
+          <a href="{% url 'contacts' %}">Контакты</a>
+          {% if user.is_authenticated %}
+          <a href="{% url 'profile' %}">Личный кабинет</a>
+          {% else %}
+          <a href="{% url 'register' %}">Зарегистрироваться</a>
+          {% endif %}
+        </nav>
+      </aside>
+    </header>
+
+    <main>
+      {% block content %}{% endblock %} {% if not hide_global_sections %}
+      {%include "includes/consultation_block.html" %} {% endif %}
+    </main>
+{% if not hide_footer %}
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="{% static 'img/white-logo.svg' %}" alt="Логотип" />
+            <div class="footer-logo-text">
+              <span>ЗабТехЭксперт</span>
+              <p>Главный поставщик услуг в сфере охраны труда</p>
+            </div>
+          </div>
+        </div>
+        <div class="footer-item">
+          <h4>Услуги</h4>
+          <div>
+            <p><a href="{% url 'services' %}">СОУТ</a></p>
+            <p><a href="{% url 'services' %}">Оценка рисков</a></p>
+            <p><a href="{% url 'services' %}">Производственный контроль</a></p>
+            <p><a href="{% url 'services' %}">Дистанционное обучение</a></p>
+            <p><a href="{% url 'services' %}">Печатная продукция</a></p>
+          </div>
+        </div>
+        <div class="footer-item">
+          <h4>Компания</h4>
+          <div>
+            <p><a href="{% url 'about' %}">О компании</a></p>
+            <p><a href="{% url 'services' %}">Лицензии и атрибуты</a></p>
+            <p><a href="{% url 'about' %}">Реализованные проекты</a></p>
+            <p><a href="{% url 'reviews' %}">Отзывы</a></p>
+            <p><a href="{% url 'about' %}">Согласие на обработку данных</a></p>
+          </div>
+        </div>
+        <div class="footer-item">
+          <h4>Контакты</h4>
+          <div class="contact">
+            <p>
+              <a href="{% url 'about' %}">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_172_2938)">
+                    <path
+                      d="M4.5676 1.65988C4.49381 1.56496 4.40066 1.48682 4.29435 1.43066C4.18804 1.3745 4.071 1.34161 3.951 1.33416C3.831 1.32671 3.71078 1.34488 3.59835 1.38746C3.48591 1.43004 3.38381 1.49606 3.29885 1.58113L2.00635 2.87488C1.4026 3.47988 1.1801 4.33613 1.44385 5.08738C2.53976 8.19627 4.32029 11.0191 6.65385 13.3474C8.98209 15.6809 11.805 17.4615 14.9139 18.5574C15.6651 18.8211 16.5214 18.5986 17.1264 17.9949L18.4188 16.7024C18.5039 16.6174 18.5699 16.5153 18.6125 16.4029C18.6551 16.2904 18.6733 16.1702 18.6658 16.0502C18.6584 15.9302 18.6255 15.8132 18.5693 15.7069C18.5132 15.6006 18.435 15.5074 18.3401 15.4336L15.4564 13.1911C15.3549 13.1126 15.2369 13.0581 15.1113 13.0317C14.9858 13.0053 14.8559 13.0077 14.7313 13.0386L11.9939 13.7224C11.6284 13.8131 11.2458 13.8079 10.8829 13.7074C10.52 13.6069 10.1893 13.4144 9.9226 13.1486L6.8526 10.0774C6.58658 9.81083 6.39387 9.48012 6.29314 9.11726C6.1924 8.75439 6.18705 8.37167 6.2776 8.00613L6.9626 5.26863C6.99355 5.14411 6.99591 5.0142 6.9695 4.88864C6.94308 4.76308 6.88859 4.64513 6.8101 4.54363L4.5676 1.65988ZM2.3551 0.63863C2.57384 0.419817 2.83664 0.250043 3.12602 0.140582C3.41541 0.0311206 3.72478 -0.0155236 4.03358 0.00374676C4.34238 0.0230171 4.64354 0.107761 4.91708 0.252351C5.19061 0.396942 5.43026 0.59807 5.6201 0.84238L7.8626 3.72488C8.27385 4.25363 8.41885 4.94238 8.25635 5.59238L7.5726 8.32988C7.5375 8.47168 7.53953 8.62013 7.5785 8.76092C7.61748 8.9017 7.69207 9.03007 7.7951 9.13363L10.8664 12.2049C10.97 12.3081 11.0986 12.3828 11.2396 12.4218C11.3807 12.4608 11.5294 12.4627 11.6714 12.4274L14.4076 11.7436C14.7284 11.6639 15.0631 11.6579 15.3866 11.7261C15.71 11.7943 16.0138 11.9349 16.2751 12.1374L19.1576 14.3799C20.1939 15.1861 20.2889 16.7174 19.3614 17.6436L18.0689 18.9361C17.1439 19.8611 15.7614 20.2674 14.4726 19.8136C11.1734 18.6544 8.17827 16.7658 5.7101 14.2886C3.23307 11.8208 1.34454 8.82609 0.1851 5.52738C-0.2674 4.23988 0.13885 2.85613 1.06385 1.93113L2.3551 0.63863Z"
+                      fill="#FE900B"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_172_2938">
+                      <rect width="20" height="20" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+                8(3022) 24-43-29<br />24-28-39<br />24-43-28</a
+              >
+            </p>
+            <p><a href="{% url 'services' %}">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_172_2962)">
+<path d="M0 5C0 4.33696 0.263392 3.70107 0.732233 3.23223C1.20107 2.76339 1.83696 2.5 2.5 2.5H17.5C18.163 2.5 18.7989 2.76339 19.2678 3.23223C19.7366 3.70107 20 4.33696 20 5V15C20 15.663 19.7366 16.2989 19.2678 16.7678C18.7989 17.2366 18.163 17.5 17.5 17.5H2.5C1.83696 17.5 1.20107 17.2366 0.732233 16.7678C0.263392 16.2989 0 15.663 0 15V5ZM2.5 3.75C2.16848 3.75 1.85054 3.8817 1.61612 4.11612C1.3817 4.35054 1.25 4.66848 1.25 5V5.27125L10 10.5212L18.75 5.27125V5C18.75 4.66848 18.6183 4.35054 18.3839 4.11612C18.1495 3.8817 17.8315 3.75 17.5 3.75H2.5ZM18.75 6.72875L12.865 10.26L18.75 13.8812V6.72875ZM18.7075 15.3237L11.6575 10.985L10 11.9788L8.3425 10.985L1.2925 15.3225C1.36353 15.5885 1.5204 15.8236 1.73874 15.9913C1.95708 16.159 2.22468 16.25 2.5 16.25H17.5C17.7752 16.25 18.0426 16.1593 18.261 15.9918C18.4793 15.8243 18.6362 15.5895 18.7075 15.3237ZM1.25 13.8812L7.135 10.26L1.25 6.72875V13.8812Z" fill="#FE900B"/>
+</g>
+<defs>
+<clipPath id="clip0_172_2962">
+<rect width="20" height="20" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+
+
+              fond75@mail.ru</a></p>
+            <p>
+              <a href="{% url 'about' %}"
+                >
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3.875 14C3.99304 13.8426 4.17828 13.75 4.375 13.75H7.5C7.84518 13.75 8.125 14.0298 8.125 14.375C8.125 14.7202 7.84518 15 7.5 15H4.6875L1.875 18.75H18.125L15.3125 15H12.5C12.1548 15 11.875 14.7202 11.875 14.375C11.875 14.0298 12.1548 13.75 12.5 13.75H15.625C15.8217 13.75 16.007 13.8426 16.125 14L19.875 19C20.017 19.1894 20.0399 19.4428 19.934 19.6545C19.8282 19.8662 19.6117 20 19.375 20H0.625004C0.388271 20 0.171857 19.8662 0.0659866 19.6545C-0.0398834 19.4428 -0.0170359 19.1894 0.125004 19L3.875 14Z" fill="#FE900B"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M10 1.25C7.92894 1.25 6.25 2.92893 6.25 5C6.25 7.07107 7.92894 8.75 10 8.75C12.0711 8.75 13.75 7.07107 13.75 5C13.75 2.92893 12.0711 1.25 10 1.25ZM5 5C5 2.23858 7.23858 0 10 0C12.7614 0 15 2.23858 15 5C15 7.54976 13.0914 9.65376 10.625 9.96132V16.875C10.625 17.2202 10.3452 17.5 10 17.5C9.65483 17.5 9.375 17.2202 9.375 16.875V9.96132C6.90856 9.65376 5 7.54976 5 5Z" fill="#FE900B"/>
+</svg>
+
+                Чита, Забайкальский край,<br />ул. Горбунова, 18а</a
+              >
+            </p>
+            <p><a href="{% url 'about' %}">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_172_2972)">
+<path d="M10 4.375C10 4.20924 9.93415 4.05027 9.81694 3.93306C9.69973 3.81585 9.54076 3.75 9.375 3.75C9.20924 3.75 9.05027 3.81585 8.93306 3.93306C8.81585 4.05027 8.75 4.20924 8.75 4.375V11.25C8.75004 11.3602 8.77919 11.4684 8.83451 11.5636C8.88982 11.6589 8.96934 11.7379 9.065 11.7925L13.44 14.2925C13.5836 14.3701 13.7518 14.3885 13.9087 14.3437C14.0657 14.2989 14.1988 14.1944 14.2798 14.0527C14.3608 13.9111 14.3831 13.7433 14.342 13.5854C14.301 13.4274 14.1997 13.2918 14.06 13.2075L10 10.8875V4.375Z" fill="#FE900B"/>
+<path d="M10 20C12.6522 20 15.1957 18.9464 17.0711 17.0711C18.9464 15.1957 20 12.6522 20 10C20 7.34784 18.9464 4.8043 17.0711 2.92893C15.1957 1.05357 12.6522 0 10 0C7.34784 0 4.8043 1.05357 2.92893 2.92893C1.05357 4.8043 0 7.34784 0 10C0 12.6522 1.05357 15.1957 2.92893 17.0711C4.8043 18.9464 7.34784 20 10 20ZM18.75 10C18.75 12.3206 17.8281 14.5462 16.1872 16.1872C14.5462 17.8281 12.3206 18.75 10 18.75C7.67936 18.75 5.45376 17.8281 3.81282 16.1872C2.17187 14.5462 1.25 12.3206 1.25 10C1.25 7.67936 2.17187 5.45376 3.81282 3.81282C5.45376 2.17187 7.67936 1.25 10 1.25C12.3206 1.25 14.5462 2.17187 16.1872 3.81282C17.8281 5.45376 18.75 7.67936 18.75 10Z" fill="#FE900B"/>
+</g>
+<defs>
+<clipPath id="clip0_172_2972">
+<rect width="20" height="20" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+
+
+              Пн-Пт 8:00–16:30</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        © {% now "Y" %} ЗабТехЭксперт. Все права защищены.
+        <a href="#">Политика конфиденциальности</a>
+        <a href="{% url 'contacts' %}"><svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M70 35C70 54.33 54.33 70 35 70C15.67 70 0 54.33 0 35C0 15.67 15.67 0 35 0C54.33 0 70 15.67 70 35Z" fill="#FE900B"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M22.6944 19.9268C23.0465 19.5751 23.4693 19.3024 23.9349 19.1265C24.4004 18.9507 24.8979 18.8758 25.3946 18.9068C25.8912 18.9378 26.3756 19.0741 26.8156 19.3065C27.2556 19.5389 27.6412 19.8621 27.9469 20.2548L31.5592 24.8959C32.2213 25.7472 32.4547 26.8561 32.1931 27.9027L31.0923 32.3102C31.0358 32.5386 31.039 32.7776 31.1018 33.0042C31.1645 33.2309 31.2846 33.4376 31.4505 33.6043L36.3951 38.5493C36.562 38.7155 36.769 38.8358 36.996 38.8986C37.2231 38.9613 37.4625 38.9644 37.6911 38.9075L42.0963 37.8066C42.6128 37.6783 43.1516 37.6686 43.6724 37.7784C44.1931 37.8882 44.6822 38.1146 45.1029 38.4406L49.7436 42.0512C51.4119 43.3493 51.5648 45.8147 50.0716 47.3061L47.9907 49.3871C46.5015 50.8764 44.2758 51.5305 42.2009 50.7999C36.8895 48.9334 32.0674 45.8927 28.0938 41.9043C24.1059 37.9309 21.0654 33.1092 19.1988 27.798C18.4703 25.725 19.1243 23.4971 20.6135 22.0078L22.6944 19.9268Z" fill="#FCFCFC"/>
+</svg>
+</a>
+      </div>
+    </footer>
+
+    <div class="toasts">
+      {% for message in messages %}
+      <div class="toast toast-{{ message.tags|default:'info' }}">
+        {{ message }}
+      </div>
+      {% endfor %}
+    </div>
+{% endif %}
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("animate-in");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+      document
+        .querySelectorAll("[data-animate]")
+        .forEach((el) => observer.observe(el));
+
+      setTimeout(() => {
+        document
+          .querySelectorAll(".toast")
+          .forEach((toast) => toast.classList.add("toast-out"));
+      }, 3500);
+
+      function normalizeRuPhone(raw) {
+        const d = (raw || "").replace(/\D/g, "");
+        let tail = d;
+        if (tail.length === 11 && tail.startsWith("8")) tail = tail.slice(1);
+        if (tail.length === 11 && tail.startsWith("7")) tail = tail.slice(1);
+        tail = tail.slice(0, 10);
+        if (tail.length !== 10) return (raw || "").trim();
+        return (
+          "+7 (" +
+          tail.slice(0, 3) +
+          ") " +
+          tail.slice(3, 6) +
+          "-" +
+          tail.slice(6, 8) +
+          "-" +
+          tail.slice(8, 10)
+        );
+      }
+
+      document.querySelectorAll('input[type="tel"], input[name="phone"]').forEach((input) => {
+        input.addEventListener("blur", () => {
+          const n = normalizeRuPhone(input.value);
+          if (n) input.value = n;
+        });
+      });
+
+      document.querySelectorAll(".select-wrapper").forEach((wrapper) => {
+        const select = wrapper.querySelector("select");
+        if (!select) return;
+        select.addEventListener("mousedown", (e) => {
+          const isOpen = wrapper.classList.contains("select-open");
+          if (isOpen) {
+            wrapper.classList.remove("select-open");
+            setTimeout(() => select.blur(), 0);
+          } else {
+            wrapper.classList.add("select-open");
+          }
+        });
+        select.addEventListener("change", () => {
+          wrapper.classList.remove("select-open");
+        });
+        select.addEventListener("blur", () => {
+          wrapper.classList.remove("select-open");
+        });
+      });
+
+      const navToggle = document.querySelector(".nav-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const mobileMenuOverlay = document.querySelector(".mobile-menu-overlay");
+
+      if (navToggle && mobileMenu && mobileMenuOverlay) {
+        const closeMobileMenu = () => {
+          document.body.classList.remove("menu-open");
+          navToggle.classList.remove("is-open");
+          mobileMenu.classList.remove("open");
+          mobileMenuOverlay.classList.remove("open");
+          navToggle.setAttribute("aria-expanded", "false");
+          mobileMenu.setAttribute("aria-hidden", "true");
+        };
+
+        navToggle.addEventListener("click", () => {
+          const isOpen = mobileMenu.classList.toggle("open");
+          navToggle.classList.toggle("is-open", isOpen);
+          mobileMenuOverlay.classList.toggle("open", isOpen);
+          document.body.classList.toggle("menu-open", isOpen);
+          navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+          mobileMenu.setAttribute("aria-hidden", isOpen ? "false" : "true");
+        });
+
+        mobileMenuOverlay.addEventListener("click", closeMobileMenu);
+        mobileMenu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", closeMobileMenu);
+        });
+
+        window.addEventListener("resize", () => {
+          if (window.innerWidth >= 768) {
+            closeMobileMenu();
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
